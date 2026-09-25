@@ -8,13 +8,15 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="ByteShift explores technology, artificial intelligence, innovation and the ideas shaping tomorrow.">
+    <meta
+        name="description"
+        content="ByteShift explores technology, artificial intelligence, innovation and the ideas shaping tomorrow.">
 
     <title>ByteShift — Technology, Ideas & The Future</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
@@ -36,25 +38,15 @@
 
             <a href="/">Home</a>
 
-            <a href="#articles">
-                Technology
-            </a>
+            <a href="/#articles">Technology</a>
 
-            <a href="#articles">
-                AI
-            </a>
+            <a href="/#articles">AI</a>
 
-            <a href="#articles">
-                Current Affairs
-            </a>
+            <a href="/#articles">Current Affairs</a>
 
-            <a href="#articles">
-                Opinions
-            </a>
+            <a href="/#articles">Opinions</a>
 
-            <a href="#about">
-                About
-            </a>
+            <a href="/#about">About</a>
 
         </nav>
 
@@ -62,7 +54,7 @@
         <button
             class="menu-button"
             id="menuButton"
-            aria-label="Open menu">
+            aria-label="Open navigation menu">
 
             ☰
 
@@ -170,7 +162,7 @@
                 <div>
 
                     <div class="eyebrow">
-                        BYTE SHIFT
+                        BYTESHIFT
                     </div>
 
                     <h2>
@@ -195,9 +187,7 @@
                     type="text"
                     id="articleSearch"
                     placeholder="Search ByteShift..."
-                    autocomplete="off"
-                >
-
+                    autocomplete="off">
 
                 <button
                     id="searchButton"
@@ -221,24 +211,24 @@
                     <div>
 
                         <div class="article-category">
-                            {{ article.category }}
+                            {{ article["category"] }}
                         </div>
 
 
                         <h3>
-                            {{ article.title }}
+                            {{ article["title"] }}
                         </h3>
 
 
                         <p>
-                            {{ article.excerpt }}
+                            {{ article["excerpt"] }}
                         </p>
 
                     </div>
 
 
                     <a
-                        href="{{ url_for('article_page', article_id=article.id) }}"
+                        href="{{ url_for('article_page', article_id=article['id']) }}"
                         class="read-more">
 
                         Read Article →
@@ -327,7 +317,6 @@
         Built with curiosity.
 
     </footer>
-
 
 
     <script

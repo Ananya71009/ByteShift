@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ByteShift Admin Login</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f3;
+            color: #111;
+        }
+
+        .admin-container {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .admin-box {
+            width: 100%;
+            max-width: 480px;
+
+            background: white;
+            border: 1px solid #ddd;
+
+            padding: 45px;
+        }
+
+        .eyebrow {
+            color: #777;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 55px;
+            line-height: 1;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 35px;
+        }
+
+        label {
+            display: block;
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 15px;
+
+            background: white;
+
+            border: 1px solid #ccc;
+
+            font-family: inherit;
+            font-size: 14px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #111;
+        }
+
+        .admin-button {
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 16px;
+
+            border: none;
+
+            background: #111;
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+        }
+
+        .admin-button:hover {
+            background: #333;
+        }
+
+        .admin-error {
+            padding: 12px;
+
+            background: #f4e5e5;
+            color: #900;
+
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+
+            .admin-box {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="admin-container">
+
+        <div class="admin-box">
+
+            <div class="eyebrow">
+                BYTESHIFT ADMIN
+            </div>
+
+
+            <h1>
+                Sign in.
+            </h1>
+
+
+            {% if error %}
+
+                <p class="admin-error">
+                    {{ error }}
+                </p>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                <label for="username">
+                    USERNAME
+                </label>
+
+                <input
+                    id="username"
+                    type="text"
+                    name="username"
+                    required>
+
+
+                <label for="password">
+                    PASSWORD
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="admin-button">
+
+                    LOGIN
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

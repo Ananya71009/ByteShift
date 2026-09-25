@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Article — ByteShift</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #f5f5f3;
+
+            color: #111;
+        }
+
+        header {
+            height: 78px;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #ddd;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #777;
+        }
+
+        .back {
+            color: #111;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 80px 7%;
+        }
+
+        .eyebrow {
+            color: #777;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 60px;
+
+            line-height: 1;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 50px;
+        }
+
+        form {
+            background: white;
+
+            border: 1px solid #ddd;
+
+            padding: 40px;
+        }
+
+        label {
+            display: block;
+
+            margin-top: 25px;
+
+            margin-bottom: 8px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        label:first-child {
+            margin-top: 0;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #ccc;
+
+            background: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #111;
+        }
+
+        textarea {
+            resize: vertical;
+
+            line-height: 1.6;
+        }
+
+        .excerpt-box {
+            min-height: 120px;
+        }
+
+        .content-box {
+            min-height: 400px;
+        }
+
+        button {
+            margin-top: 30px;
+
+            padding: 16px 24px;
+
+            border: none;
+
+            background: #111;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        @media (max-width: 700px) {
+
+            main {
+                padding: 60px 6%;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            form {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            BYTE<span>SHIFT</span>
+        </div>
+
+
+        <a
+            href="/admin"
+            class="back">
+
+            ← DASHBOARD
+
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <div class="eyebrow">
+            BYTESHIFT ADMIN
+        </div>
+
+
+        <h1>
+            Edit Article
+        </h1>
+
+
+        <form method="POST">
+
+
+            <label for="title">
+                TITLE
+            </label>
+
+            <input
+                id="title"
+                type="text"
+                name="title"
+                value="{{ article['title'] }}"
+                required>
+
+
+            <label for="category">
+                CATEGORY
+            </label>
+
+            <input
+                id="category"
+                type="text"
+                name="category"
+                value="{{ article['category'] }}"
+                required>
+
+
+            <label for="date">
+                DATE
+            </label>
+
+            <input
+                id="date"
+                type="text"
+                name="date"
+                value="{{ article['date'] }}"
+                required>
+
+
+            <label for="read_time">
+                READ TIME
+            </label>
+
+            <input
+                id="read_time"
+                type="text"
+                name="read_time"
+                value="{{ article['read_time'] }}"
+                required>
+
+
+            <label for="excerpt">
+                EXCERPT
+            </label>
+
+            <textarea
+                id="excerpt"
+                name="excerpt"
+                class="excerpt-box"
+                required>{{ article['excerpt'] }}</textarea>
+
+
+            <label for="content">
+                ARTICLE CONTENT
+            </label>
+
+            <textarea
+                id="content"
+                name="content"
+                class="content-box"
+                required>{{ article['content'] }}</textarea>
+
+
+            <button type="submit">
+                SAVE CHANGES
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

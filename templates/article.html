@@ -5,15 +5,16 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="{{ article.excerpt }}">
+        content="{{ article['excerpt'] }}">
 
     <title>
-        {{ article.title }} — ByteShift
+        {{ article["title"] }} — ByteShift
     </title>
 
     <link
@@ -68,7 +69,7 @@
         <button
             class="menu-button"
             id="menuButton"
-            aria-label="Open menu">
+            aria-label="Open navigation menu">
 
             ☰
 
@@ -87,26 +88,25 @@
 
         <header class="article-header">
 
-
             <div class="eyebrow">
-                {{ article.category }}
+                {{ article["category"] }}
             </div>
 
 
             <h1>
-                {{ article.title }}
+                {{ article["title"] }}
             </h1>
 
 
             <p class="article-excerpt">
-                {{ article.excerpt }}
+                {{ article["excerpt"] }}
             </p>
 
 
             <div class="article-meta">
 
                 <span>
-                    {{ article.date }}
+                    {{ article["date"] }}
                 </span>
 
                 <span>
@@ -114,7 +114,7 @@
                 </span>
 
                 <span>
-                    {{ article.read_time }}
+                    {{ article["read_time"] }}
                 </span>
 
             </div>
@@ -127,7 +127,7 @@
 
         <article class="article-content-page">
 
-            {% for paragraph in article.content.split('\n\n') %}
+            {% for paragraph in article["content"].split('\n\n') %}
 
                 <p>
                     {{ paragraph }}
@@ -146,7 +146,6 @@
 
         </article>
 
-
     </main>
 
 
@@ -161,7 +160,6 @@
         Built with curiosity.
 
     </footer>
-
 
 
     <script

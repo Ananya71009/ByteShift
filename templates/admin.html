@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ByteShift Admin</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f3;
+            color: #111;
+        }
+
+        header {
+            height: 78px;
+
+            padding: 0 7%;
+
+            background: #f5f5f3;
+
+            border-bottom: 1px solid #ddd;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #777;
+        }
+
+        .logout {
+            color: #111;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .logout:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1300px;
+
+            margin: auto;
+
+            padding: 80px 7%;
+        }
+
+        .top {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: flex-end;
+
+            gap: 30px;
+
+            margin-bottom: 50px;
+        }
+
+        .eyebrow {
+            color: #777;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 60px;
+
+            line-height: 1;
+
+            letter-spacing: -4px;
+        }
+
+        .new-button {
+            display: inline-block;
+
+            background: #111;
+            color: white;
+
+            padding: 15px 20px;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .new-button:hover {
+            background: #333;
+        }
+
+        .articles {
+            display: grid;
+            gap: 15px;
+        }
+
+        .article {
+            background: white;
+
+            border: 1px solid #ddd;
+
+            padding: 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 25px;
+        }
+
+        .category {
+            color: #777;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 22px;
+
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #888;
+
+            font-size: 12px;
+        }
+
+        .article-actions {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .edit-button {
+            display: inline-block;
+
+            background: #111;
+            color: white;
+
+            padding: 10px 15px;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .edit-button:hover {
+            background: #333;
+        }
+
+        .delete-button {
+            background: white;
+
+            border: 1px solid #b00020;
+
+            color: #b00020;
+
+            padding: 10px 15px;
+
+            cursor: pointer;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .delete-button:hover {
+            background: #b00020;
+            color: white;
+        }
+
+        .empty {
+            background: white;
+
+            border: 1px solid #ddd;
+
+            padding: 40px;
+
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            main {
+                padding: 60px 6%;
+            }
+
+            .top {
+                display: block;
+            }
+
+            .new-button {
+                margin-top: 25px;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            .article {
+                display: block;
+            }
+
+            .article-actions {
+                margin-top: 20px;
+
+                flex-wrap: wrap;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            BYTE<span>SHIFT</span>
+        </div>
+
+
+        <a
+            href="/admin/logout"
+            class="logout">
+
+            LOGOUT
+
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <div class="top">
+
+            <div>
+
+                <div class="eyebrow">
+                    BYTESHIFT ADMIN
+                </div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <a
+                href="/admin/new"
+                class="new-button">
+
+                + NEW ARTICLE
+
+            </a>
+
+        </div>
+
+
+        <div class="articles">
+
+            {% if articles %}
+
+                {% for article in articles %}
+
+                <div class="article">
+
+                    <div>
+
+                        <div class="category">
+                            {{ article["category"] }}
+                        </div>
+
+
+                        <h2>
+                            {{ article["title"] }}
+                        </h2>
+
+
+                        <div class="date">
+                            {{ article["date"] }}
+                        </div>
+
+                    </div>
+
+
+                    <div class="article-actions">
+
+
+                        <a
+                            href="{{ url_for('edit_article', article_id=article['id']) }}"
+                            class="edit-button">
+
+                            EDIT
+
+                        </a>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('delete_article', article_id=article['id']) }}">
+
+                            <button
+                                type="submit"
+                                class="delete-button"
+                                onclick="return confirm('Delete this article?');">
+
+                                DELETE
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="empty">
+                    No articles yet.
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
