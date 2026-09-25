@@ -1,335 +1,339 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>ByteShift — Technology, Ideas & Tomorrow</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-```
+    <meta name="description"
+          content="ByteShift explores technology, artificial intelligence, innovation and the ideas shaping tomorrow.">
+
+    <title>ByteShift — Technology, Ideas & The Future</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
+
 <body>
 
-```
-<!-- NAVIGATION -->
+    <!-- =================================
+         NAVIGATION
+    ================================== -->
 
-<header class="navbar">
+    <header class="navbar">
 
-    <a href="/" class="logo">
-        BYTE<span>SHIFT</span>
-    </a>
-
-    <nav class="nav-links">
-        <a href="/">Home</a>
-        <a href="#technology">Technology</a>
-        <a href="#ai">AI</a>
-        <a href="#current-affairs">Current Affairs</a>
-        <a href="#opinions">Opinions</a>
-        <a href="#about">About</a>
-    </nav>
-
-    <button class="menu-button" id="menuButton">
-        ☰
-    </button>
-
-</header>
-
-
-<!-- HERO -->
-
-<main>
-
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <p class="eyebrow">
-                TECHNOLOGY • IDEAS • FUTURE
-            </p>
-
-            <h1>
-                Understanding the
-                <span>technology</span>
-                shaping tomorrow.
-            </h1>
-
-            <p class="hero-description">
-                ByteShift explores technology, artificial intelligence,
-                innovation and the digital world through simple,
-                thoughtful and curious writing.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#latest" class="primary-button">
-                    Explore Articles →
-                </a>
-
-                <a href="#about" class="secondary-button">
-                    About ByteShift
-                </a>
-
-            </div>
-
+        <div class="logo">
+            BYTE<span>SHIFT</span>
         </div>
 
 
-        <!-- FEATURED ARTICLE -->
+        <nav class="nav-links">
 
-        <article class="featured-card">
+            <a href="/">Home</a>
 
-            <div class="featured-top">
-                <span>FEATURED</span>
-                <span>01</span>
+            <a href="#articles">
+                Technology
+            </a>
+
+            <a href="#articles">
+                AI
+            </a>
+
+            <a href="#articles">
+                Current Affairs
+            </a>
+
+            <a href="#articles">
+                Opinions
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu">
+
+            ☰
+
+        </button>
+
+    </header>
+
+
+    <!-- =================================
+         MAIN
+    ================================== -->
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <div class="eyebrow">
+                    TECHNOLOGY • IDEAS • FUTURE
+                </div>
+
+
+                <h1>
+                    Understanding the technology shaping tomorrow.
+                </h1>
+
+
+                <p class="hero-description">
+
+                    ByteShift explores technology,
+                    artificial intelligence, innovation
+                    and the ideas changing the world around us.
+
+                </p>
+
+
+                <div class="buttons">
+
+                    <a
+                        href="#articles"
+                        class="button button-primary">
+
+                        Explore Articles →
+
+                    </a>
+
+
+                    <a
+                        href="#about"
+                        class="button button-secondary">
+
+                        About ByteShift
+
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="featured-bottom">
 
-                <p class="featured-category">
-                    THE FUTURE OF TECHNOLOGY
-                </p>
+            <!-- FEATURED STORY -->
+
+            <div class="featured-card">
+
+                <div class="featured-label">
+                    FEATURED STORY
+                </div>
+
 
                 <h2>
                     The future isn't coming.
                     It's being built.
                 </h2>
 
-                <p>
-                    Explore the technologies quietly transforming
-                    how we live, work and think.
-                </p>
 
-                <a href="#" class="read-link">
-                    Read Article →
+                <a
+                    href="/article/1"
+                    class="button button-secondary">
+
+                    Read Story →
+
                 </a>
 
             </div>
 
-        </article>
-
-    </section>
+        </section>
 
 
-    <!-- LATEST ARTICLES -->
 
-    <section class="articles-section" id="latest">
+        <!-- =================================
+             ARTICLES
+        ================================== -->
 
-        <div class="section-header">
+        <section
+            class="latest"
+            id="articles">
 
-            <div>
-                <p class="eyebrow">
-                    FROM THE BLOG
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        BYTE SHIFT
+                    </div>
+
+                    <h2>
+                        Latest Articles
+                    </h2>
+
+                </div>
+
+
+                <p>
+                    Ideas worth thinking about.
                 </p>
 
-                <h2>
-                    Latest Articles
-                </h2>
             </div>
 
-            <a href="#" class="view-all">
-                View all →
-            </a>
 
-        </div>
+            <!-- SEARCH -->
+
+            <div class="article-search">
+
+                <input
+                    type="text"
+                    id="articleSearch"
+                    placeholder="Search ByteShift..."
+                    autocomplete="off"
+                >
 
 
-        <div class="article-grid">
+                <button
+                    id="searchButton"
+                    type="button">
+
+                    SEARCH
+
+                </button>
+
+            </div>
 
 
-            <!-- ARTICLE 1 -->
+            <!-- ARTICLE GRID -->
 
-            <article class="article-card">
+            <div class="article-grid">
 
-                <div class="article-image ai-image">
+                {% for article in articles %}
 
-                    <span>AI</span>
+                <article class="article-card">
 
-                </div>
+                    <div>
 
-                <div class="article-body">
+                        <div class="article-category">
+                            {{ article.category }}
+                        </div>
 
-                    <p class="article-category">
-                        ARTIFICIAL INTELLIGENCE
-                    </p>
 
-                    <h3>
-                        How AI is changing the way we use technology
-                    </h3>
+                        <h3>
+                            {{ article.title }}
+                        </h3>
 
-                    <p>
-                        Artificial intelligence is moving from
-                        futuristic ideas into everyday technology.
-                        Here's what that shift means.
-                    </p>
 
-                    <a href="#" class="article-link">
-                        Read more →
+                        <p>
+                            {{ article.excerpt }}
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="{{ url_for('article_page', article_id=article.id) }}"
+                        class="read-more">
+
+                        Read Article →
+
                     </a>
 
+                </article>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             ABOUT
+        ================================== -->
+
+        <section
+            class="about"
+            id="about">
+
+
+            <div class="about-grid">
+
+
+                <div>
+
+                    <div class="eyebrow">
+                        ABOUT BYTESHIFT
+                    </div>
+
+
+                    <h2>
+                        Technology,
+                        without the noise.
+                    </h2>
+
                 </div>
 
-            </article>
 
-
-            <!-- ARTICLE 2 -->
-
-            <article class="article-card">
-
-                <div class="article-image future-image">
-
-                    <span>2030+</span>
-
-                </div>
-
-                <div class="article-body">
-
-                    <p class="article-category">
-                        INNOVATION
-                    </p>
-
-                    <h3>
-                        What comes after the smartphone?
-                    </h3>
+                <div>
 
                     <p>
-                        Computing is evolving beyond traditional
-                        screens. The next generation could look
-                        very different.
+
+                        ByteShift is an independent
+                        technology blog focused on
+                        understanding the ideas behind
+                        the headlines.
+
                     </p>
 
-                    <a href="#" class="article-link">
-                        Read more →
-                    </a>
 
-                </div>
+                    <br>
 
-            </article>
-
-
-            <!-- ARTICLE 3 -->
-
-            <article class="article-card">
-
-                <div class="article-image tech-image">
-
-                    <span>TECH</span>
-
-                </div>
-
-                <div class="article-body">
-
-                    <p class="article-category">
-                        TECHNOLOGY
-                    </p>
-
-                    <h3>
-                        Why technology moves faster every year
-                    </h3>
 
                     <p>
-                        From computing power to global connectivity,
-                        several forces are accelerating technological
-                        change.
-                    </p>
 
-                    <a href="#" class="article-link">
-                        Read more →
-                    </a>
+                        From artificial intelligence and
+                        emerging technology to current
+                        affairs and digital culture,
+                        ByteShift looks at what is
+                        changing — and why it matters.
+
+                    </p>
 
                 </div>
 
-            </article>
+            </div>
 
-        </div>
+        </section>
 
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about-section" id="about">
-
-        <div class="about-label">
-            ABOUT BYTESHIFT
-        </div>
-
-        <div class="about-content">
-
-            <h2>
-                Curious about what's
-                <span>next?</span>
-            </h2>
-
-            <p>
-                ByteShift is an independent student-led blog
-                focused on technology and the ideas shaping
-                the future.
-            </p>
-
-            <p>
-                From artificial intelligence and software to
-                major technology developments, the goal is simple:
-                understand what's happening and explain it clearly.
-            </p>
-
-        </div>
-
-    </section>
-
-</main>
+    </main>
 
 
-<!-- FOOTER -->
 
-<footer>
+    <!-- =================================
+         FOOTER
+    ================================== -->
 
-    <div class="footer-top">
+    <footer>
 
-        <div>
+        © 2026 ByteShift.
+        Built with curiosity.
 
-            <a href="/" class="footer-logo">
-                BYTE<span>SHIFT</span>
-            </a>
-
-            <p>
-                Technology. Ideas. Tomorrow.
-            </p>
-
-        </div>
-
-        <div class="footer-links">
-
-            <a href="/">Home</a>
-            <a href="#latest">Articles</a>
-            <a href="#about">About</a>
-
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-        <span>
-            © 2026 ByteShift
-        </span>
-
-        <span>
-            Built with curiosity.
-        </span>
-
-    </div>
-
-</footer>
+    </footer>
 
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-```
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
 
 </body>
-</html>
 
+</html>

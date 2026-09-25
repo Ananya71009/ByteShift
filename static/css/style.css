@@ -1,6 +1,6 @@
-/* =========================
-   BYTE SHIFT — MAIN CSS
-   ========================= */
+/* =========================================
+   BYTE SHIFT — MAIN STYLESHEET
+   ========================================= */
 
 * {
     margin: 0;
@@ -19,9 +19,9 @@ body {
     line-height: 1.6;
 }
 
-/* =========================
+/* =========================================
    NAVIGATION
-   ========================= */
+   ========================================= */
 
 .navbar {
     height: 78px;
@@ -29,8 +29,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     background: #f5f5f3;
     border-bottom: 1px solid #ddd;
+
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -45,8 +47,6 @@ body {
 .logo span {
     color: #777;
 }
-
-/* Desktop navigation */
 
 .nav-links {
     display: flex;
@@ -67,24 +67,23 @@ body {
     color: #000;
 }
 
-/* Mobile menu button */
-
 .menu-button {
     display: none;
     border: none;
     background: transparent;
+    color: #111;
     font-size: 25px;
     cursor: pointer;
-    color: #111;
 }
 
-/* =========================
-   HERO SECTION
-   ========================= */
+/* =========================================
+   HERO
+   ========================================= */
 
 .hero {
     min-height: 650px;
     padding: 110px 7%;
+
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 70px;
@@ -99,8 +98,8 @@ body {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
-    margin-bottom: 25px;
     color: #777;
+    margin-bottom: 25px;
 }
 
 .hero h1 {
@@ -111,16 +110,16 @@ body {
 }
 
 .hero-description {
-    max-width: 600px;
+    max-width: 620px;
     font-size: 18px;
     color: #666;
     line-height: 1.7;
     margin-bottom: 35px;
 }
 
-/* =========================
+/* =========================================
    BUTTONS
-   ========================= */
+   ========================================= */
 
 .buttons {
     display: flex;
@@ -131,16 +130,19 @@ body {
 .button {
     display: inline-block;
     padding: 14px 22px;
+
+    border: 1px solid #111;
+
     text-decoration: none;
     font-size: 13px;
     font-weight: 700;
-    border: 1px solid #111;
+
     transition: all 0.2s ease;
 }
 
 .button-primary {
     background: #111;
-    color: white;
+    color: #fff;
 }
 
 .button-primary:hover {
@@ -148,24 +150,26 @@ body {
 }
 
 .button-secondary {
-    color: #111;
     background: transparent;
+    color: #111;
 }
 
 .button-secondary:hover {
     background: #111;
-    color: white;
+    color: #fff;
 }
 
-/* =========================
+/* =========================================
    FEATURED CARD
-   ========================= */
+   ========================================= */
 
 .featured-card {
     background: #111;
-    color: white;
+    color: #fff;
+
     padding: 45px;
     min-height: 400px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -183,9 +187,20 @@ body {
     letter-spacing: -2px;
 }
 
-/* =========================
+.featured-card .button {
+    color: #fff;
+    border-color: #fff;
+    width: fit-content;
+}
+
+.featured-card .button:hover {
+    background: #fff;
+    color: #111;
+}
+
+/* =========================================
    LATEST ARTICLES
-   ========================= */
+   ========================================= */
 
 .latest {
     padding: 100px 7%;
@@ -196,7 +211,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-bottom: 45px;
+    gap: 30px;
+    margin-bottom: 40px;
 }
 
 .section-heading h2 {
@@ -209,6 +225,64 @@ body {
     font-size: 14px;
 }
 
+/* =========================================
+   SEARCH
+   ========================================= */
+
+.article-search {
+    max-width: 650px;
+    margin: 0 0 45px auto;
+
+    display: flex;
+    gap: 10px;
+}
+
+.article-search input {
+    flex: 1;
+
+    padding: 16px 20px;
+
+    background: #fff;
+    border: 1px solid #ccc;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.article-search input:focus {
+    border-color: #111;
+}
+
+.article-search input::placeholder {
+    color: #999;
+}
+
+.article-search button {
+    padding: 16px 24px;
+
+    border: none;
+    background: #111;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.article-search button:hover {
+    background: #333;
+}
+
+/* =========================================
+   ARTICLE GRID
+   ========================================= */
+
 .article-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -216,14 +290,19 @@ body {
 }
 
 .article-card {
-    background: white;
+    background: #fff;
     border: 1px solid #ddd;
+
     padding: 30px;
-    min-height: 300px;
+    min-height: 320px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .article-card:hover {
@@ -241,8 +320,8 @@ body {
 .article-card h3 {
     font-size: 25px;
     line-height: 1.15;
-    margin: 20px 0;
     letter-spacing: -1px;
+    margin: 20px 0;
 }
 
 .article-card p {
@@ -251,21 +330,28 @@ body {
 }
 
 .read-more {
+    display: inline-block;
     margin-top: 25px;
+
     color: #111;
     text-decoration: none;
+
     font-size: 13px;
     font-weight: 700;
 }
 
-/* =========================
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
    ABOUT
-   ========================= */
+   ========================================= */
 
 .about {
     padding: 110px 7%;
     background: #111;
-    color: white;
+    color: #fff;
 }
 
 .about-grid {
@@ -273,6 +359,10 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
+}
+
+.about .eyebrow {
+    color: #999;
 }
 
 .about h2 {
@@ -287,21 +377,24 @@ body {
     line-height: 1.8;
 }
 
-/* =========================
+/* =========================================
    FOOTER
-   ========================= */
+   ========================================= */
 
 footer {
     background: #111;
     color: #777;
+
     border-top: 1px solid #333;
+
     padding: 30px 7%;
+
     font-size: 12px;
 }
 
-/* =========================
+/* =========================================
    ARTICLE PAGE
-   ========================= */
+   ========================================= */
 
 .article-page {
     max-width: 1000px;
@@ -331,7 +424,10 @@ footer {
 .article-meta {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
+
     margin-top: 25px;
+
     color: #888;
     font-size: 13px;
 }
@@ -343,22 +439,28 @@ footer {
 
 .article-content-page p {
     margin-bottom: 28px;
+
+    color: #333;
     font-size: 18px;
     line-height: 1.9;
-    color: #333;
 }
 
 .back-button {
     display: inline-block;
     margin-top: 50px;
+
     color: #111;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-/* =========================
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
    TABLET
-   ========================= */
+   ========================================= */
 
 @media (max-width: 1100px) {
 
@@ -384,32 +486,23 @@ footer {
     }
 }
 
-/* =========================
+/* =========================================
    MOBILE
-   ========================= */
+   ========================================= */
 
 @media (max-width: 900px) {
-
-    .navbar {
-        position: sticky;
-    }
-
-    /* Hide normal navigation */
 
     .nav-links {
         display: none;
     }
 
-    /* Show hamburger */
-
     .menu-button {
         display: block;
     }
 
-    /* Open mobile navigation */
-
     .nav-links.mobile-menu {
         display: flex;
+
         position: absolute;
         top: 78px;
         left: 0;
@@ -417,11 +510,13 @@ footer {
 
         flex-direction: column;
         align-items: flex-start;
+
         gap: 20px;
 
         padding: 25px 7%;
 
         background: #f5f5f3;
+
         border-bottom: 1px solid #ddd;
 
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -449,9 +544,9 @@ footer {
     }
 }
 
-/* =========================
+/* =========================================
    SMALL PHONES
-   ========================= */
+   ========================================= */
 
 @media (max-width: 600px) {
 
@@ -503,6 +598,14 @@ footer {
     .section-heading h2 {
         font-size: 35px;
         margin-bottom: 10px;
+    }
+
+    .article-search {
+        margin: 0 0 30px 0;
+    }
+
+    .article-search button {
+        padding: 16px;
     }
 
     .article-card {
