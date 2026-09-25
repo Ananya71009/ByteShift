@@ -1,5 +1,4 @@
-from flask import Flask, render_template, send_from_directory
-import os
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -55,19 +54,6 @@ def article_page(article_id):
         return "Article not found", 404
 
     return render_template("article.html", article=article)
-
-
-# =========================
-# GOOGLE SEARCH CONSOLE
-# VERIFICATION FILE
-# =========================
-
-@app.route("/googlef950d500eb6c7a8b.html")
-def google_verification():
-    return send_from_directory(
-        os.path.dirname(os.path.abspath(__file__)),
-        "googlef950d500eb6c7a8b.html"
-    )
 
 
 # =========================
